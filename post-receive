@@ -1,0 +1,5 @@
+#!/bin/bash
+GIT_WORK_TREE=/root/babytracker git checkout -f
+cd /root/babytracker
+docker-compose down
+docker-compose up --build -d

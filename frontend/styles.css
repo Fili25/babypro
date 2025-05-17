@@ -1,0 +1,52 @@
+
+body {
+  font-family: sans-serif;
+  background-color: #fff7f5;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 500px;
+  margin: auto;
+  padding: 1rem;
+}
+.buttons button {
+  display: block;
+  width: 100%;
+  background: #ffd5e5;
+  border: none;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  border-radius: 12px;
+}
+.next-card {
+  background: #fff0f5;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 12px;
+}
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal.hidden {
+  display: none;
+}
+.modal-content {
+  background: white;
+  padding: 1rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+}
+.modal-buttons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}

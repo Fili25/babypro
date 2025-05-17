@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Уход за малышом</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>👶 Уход за малышом</h1>
+    <div class="buttons">
+      <button onclick="logEvent('Кормление')">🍽 Кормление — сейчас</button>
+      <button onclick="logEvent('Заснул')">😴 Заснул</button>
+      <button onclick="logEvent('Проснулся')">🌅 Проснулся</button>
+      <button onclick="openModal('manualModal')">🕓 Добавить вручную</button>
+      <button onclick="openModal('settingsModal')">⚙️ Настройки</button>
+      <button onclick="openModal('inviteModal')">👨‍👩‍👧‍👦 Семья</button>
+    </div>
+
+    <div class="next-card">
+      <h2>📅 Следующие события</h2>
+      <div class="next">
+        <p>Следующее кормление через: <span id="nextFeed">–</span></p>
+        <p>Следующий сон через: <span id="nextSleep">–</span></p>
+      </div>
+    </div>
+
+    <div class="history">
+      <h2>История</h2>
+      <ul id="eventHistory"></ul>
+    </div>
+  </div>
+
+  <!-- Модальные окна -->
+  <div id="manualModal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Добавить вручную</h2>
+      <label>Тип события:
+        <select id="manualType">
+          <option>Кормление</option>
+          <option>Заснул</option>
+          <option>Проснулся</option>
+        </select>
+      </label>
+      <label>Время:
+        <input type="time" id="manualTime" />
+      </label>
+      <div class="modal-buttons">
+        <button onclick="saveManualEvent()">Добавить</button>
+        <button onclick="closeModal('manualModal')">Отмена</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="settingsModal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Настройки интервалов</h2>
+      <label>Интервал кормлений (мин):
+        <input type="number" id="feedIntervalInput" min="10" />
+      </label>
+      <label>Интервал снов (мин):
+        <input type="number" id="sleepIntervalInput" min="10" />
+      </label>
+      <div class="modal-buttons">
+        <button onclick="saveIntervalSettings()">Сохранить</button>
+        <button onclick="closeModal('settingsModal')">Отмена</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="inviteModal" class="modal hidden">
+    <div class="modal-content">
+      <h2>👨‍👩‍👧‍👦 Доступ к малышу</h2>
+      <p>Твой инвайт-код: <code id="inviteCode">–</code></p>
+      <button onclick="generateInvite()">🔁 Получить код</button>
+      <hr />
+      <label>Ввести код:</label>
+      <input type="text" id="inviteInput" />
+      <button onclick="joinFamily()">Вступить</button>
+      <button onclick="closeModal('inviteModal')">Закрыть</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
